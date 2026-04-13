@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}作答中 · 文艺病自测{% endblock %}
+
+{% block body %}
+<main class="quiz-page">
+  <!-- Progress bar -->
+  <div class="progress-wrap">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  <div class="progress-label" id="progressLabel">1 / 25</div>
+
+  <!-- Question card -->
+  <div class="question-card" id="questionCard">
+    <p class="q-text" id="qText"></p>
+    <div class="options" id="options"></div>
+  </div>
+</main>
+
+<script>
+  const QUESTIONS = {{ questions_json | safe }};
+</script>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}结果分布 · 文艺病自测{% endblock %}
+
+{% block body %}
+<main class="stats-page">
+  <h1 class="stats-title">测试结果分布</h1>
+  <p class="stats-total">共 {{ total }} 次测试</p>
+  <div class="stats-list">
+    {% for row in rows %}
+    <div class="stats-row">
+      <span class="stats-name">{{ row.result_name }}</span>
+      <div class="stats-bar-wrap">
+        <div class="stats-bar-fill"
+             style="width: {{ (row.count / total * 100) | round(1) }}%"></div>
+      </div>
+      <span class="stats-count">{{ row.count }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <a href="{{ url_for('index') }}" class="btn-action btn-ghost" style="margin-top:2rem">返回首页</a>
+</main>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}{{ data.keyword }} · 文学症候群报告{% endblock %}
+
+{% block body %}
+<main class="result-page {% if key == 'wenming' %}result-wenming{% endif %}">
+
+  <!-- Share card -->
+  <div class="share-card" id="shareCard">
+    <span class="share-card-label">文学症候群报告</span>
+    <div class="result-keyword">{{ data.keyword }}</div>
+    <div class="result-keyword-en">{{ data.keyword_en }}</div>
+    <div class="result-writer">{{ data.writer }} 型</div>
+    <blockquote class="result-quote">
+      <p>{{ data.quote }}</p>
+      <cite>—— {{ data.source }}</cite>
+    </blockquote>
+    <div class="share-card-url">wenyi-quiz</div>
+  </div>
+
+  <!-- Section 1: 诊断报告 -->
+  <div class="result-section">
+    <h2 class="result-section-title">诊断报告</h2>
+    <p class="result-body">{{ data.description }}</p>
+  </div>
+
+  <!-- Section 2: 作家介绍 -->
+  {% if key != 'wenming' %}
+  <div class="result-section">
+    <h2 class="result-section-title">关于 {{ data.writer }}</h2>
+    <p class="result-body">{{ data.writer_intro }}</p>
+  </div>
+  {% else %}
+  <div class="result-section">
+    <h2 class="result-section-title">关于 {{ data.writer }}</h2>
+    <p class="result-body">{{ data.writer_intro }}</p>
+  </div>
+  {% endif %}
+
+  <!-- Section 3: 为何相似 -->
+  <div class="result-section">
+    <h2 class="result-section-title">你们为何相似</h2>
+    <p class="result-body">{{ data.similarity }}</p>
+  </div>
+
+  <!-- Actions -->
+  <div class="result-actions">
+    <button class="btn-action" id="btnDownload">保存结果图</button>
+    <button class="btn-action btn-secondary" id="btnShare">分享链接</button>
+    <a href="{{ url_for('quiz') }}" class="btn-action btn-ghost">重新诊断</a>
+  </div>
+
+  <p class="result-stats-hint">
+    目前共有 <strong>{{ total }}</strong> 人完成诊断
+  </p>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+  const RESULT_KEY = "{{ key }}";
+  const RESULT_KEYWORD = "{{ data.keyword }}";
+</script>
+<script src="{{ url_for('static', filename='js/share.js') }}"></script>
+{% endblock %}

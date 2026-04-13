@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}文学症候群报告{% endblock %}
+
+{% block body %}
+<main class="landing">
+  <div class="landing-inner">
+    <p class="landing-eyebrow">一份自我诊断</p>
+    <h1 class="landing-title">你的病，<br>有名字吗</h1>
+    <p class="landing-sub">
+      25 道题<br>
+      找出你的文学症候
+    </p>
+    <p class="landing-desc">
+      有些人的悲伤，比别人的更有质感。<br>
+      有些人在深夜反复读同一段话。<br>
+      有些人把孤独当作一种天赋来经营。<br>
+      <br>
+      你是其中一种吗？
+    </p>
+    <a href="{{ url_for('quiz') }}" class="btn-start">开始诊断</a>
+    <p class="landing-note">约 5 分钟 · 共 25 题 · 无需注册</p>
+  </div>
+</main>
+{% endblock %}
