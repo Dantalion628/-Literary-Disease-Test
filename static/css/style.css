@@ -97,11 +97,44 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
-.landing-note {
-  font-size: 0.8rem;
+.landing-disclaimer {
+  font-size: 0.72rem;
   color: var(--quote);
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+
+/* Progress label row */
+.progress-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-w);
+  margin-bottom: 2.5rem;
+}
+
+.progress-label-row span {
+  font-size: 0.78rem;
+  color: var(--quote);
+  letter-spacing: 0.15em;
+}
+
+.btn-back {
+  background: transparent;
+  border: none;
+  color: var(--quote);
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.2rem 0.4rem;
+  transition: color 0.2s;
+}
+
+.btn-back:hover {
+  color: var(--text-muted);
 }
 
 /* ── Quiz page ──────────────────────────────── */
